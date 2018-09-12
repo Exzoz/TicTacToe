@@ -44,6 +44,7 @@ class GameBoard {
     line(width*.66, height*.1, width*.66, height*.9);
     line(width*.1, height*.33, width*.9, height*.33);
     line(width*.1, height*.66, width*.9, height*.66);
+
     //println(squareYYs);
   } //end drawGridLines
 
@@ -90,7 +91,8 @@ class GameBoard {
 
     //if the square is already full, return an error
     if (checkIfSquareAvailable(squareToPlay) == false) { 
-      text("invalid move", 0, 0);
+      text("invalid move", width/2, height/2);
+      delay(350);
 
       //but if the square is available...
     } else {
@@ -105,11 +107,15 @@ class GameBoard {
   void markSquareX(int square_) {
     int square = square_;
     squareStates[square] = 1;
+    println("you got to markSquareX function");
+    delay(500);
+    playerOnesTurn = false;
   }
 
   void markSquareO(int square_) {
     int square = square_;
     squareStates[square] = 2;
+    playerOnesTurn = true;
   }
 
   void setGameBoardBackgroundColor(color bgCol_) { //setter for bg color
@@ -151,10 +157,50 @@ class GameBoard {
       textAlign(RIGHT);
       text("Please Wait...", width*.95, height*.1);
     } else {
-      textAlign(LEFT);
-      text("Your move", width*.95, height*.1);
       textAlign(RIGHT);
+      text("Your move", width*.95, height*.1);
+      textAlign(LEFT);
       text("Please Wait...", width*.05, height*.1);
     }
   } //end drawSCoreBoard
+
+  void drawPlayedTokens() {
+    char marker = ' ';
+    for (int i = 0; i < 9; i++) {
+      if (gameBoard.squareStates[i] == 0) {
+        marker= ' ';
+      } else if (gameBoard.squareStates[i] ==1) {
+        marker = 'X';
+        fill(playerOne.playerColor);
+      } else if (gameBoard.squareStates[i] ==2) {     
+        marker = 'O';
+        fill(playerTwo.playerColor);
+      }
+      textFont(lazerFont);
+      textSize(50);
+      textMode(CENTER);
+      textAlign(CENTER,CENTER);
+      text(marker, width*squareXXs[i], height*squareYYs[i]);
+    } //end for loops
+  } //end drawplayedtokens
 } //end gameBoard class
+
+void keyPressed() {
+  if (gameState == 2 && key == ' ') {
+    gameBoard.playTokenOnSquare(gameBoard.squareHighlighted, playerOnesTurn);
+  }
+} //end keypressed
+
+void drawTokenX(int xpos_, int ypos_) {
+  textFont(lazerFont);
+  textSize(40);
+  fill(playerOne.playerColor);
+  text(playerOne.playerToken, xpos_, ypos_);
+} //end drawTokemX
+
+void drawTokenY(int xpos_, int ypos_) {
+  textFont(lazerFont);
+  textSize(40);
+  fill(playerTwo.playerColor);
+  text(playerTwo.playerToken, xpos_, ypos_);
+} //end drawTokenY
