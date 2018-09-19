@@ -74,9 +74,21 @@ public class Engine {
         } else if (isDraw()) { //Checks if it is a draw
             gameStatus = GameStatus.DRAW;
         }
+        //There is no change, game status still playing
     }
 
     public void playerToMove(int player) {
+        boolean validInput = false; // This is for input validation
+        do {
+            if (player == 1) {
+                System.out.println(player1 + "Please enter your move (row[1-3] column[1-3]): ");
+            } else {
+                System.out.println(player2 + "Please enter your move (row[1-3] column[1-3]): ");
+            }
+            int row = input.nextInt() -1;
+            int col = input.nextInt() -1;
+            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == Square)
+        }
 
 
 
@@ -86,6 +98,9 @@ public class Engine {
 
     /** Check if there are no more empty squares */
     public boolean isDraw() {
+        for (int row = 0; row < 3; row++) {
+            for (int )
+        }
 
 
 
