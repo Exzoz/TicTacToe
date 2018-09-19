@@ -8,7 +8,9 @@ public class Graphics {
     }
 
     /** Print the game board */
-    public void printBoard
+    public void printBoard(Square[][] board) {
+        for
+    }
 
 
 
@@ -16,7 +18,11 @@ public class Graphics {
 
 
     /** Print single square content */
+    public void printSquare(Square square) {
 
+
+
+    }
 
 
 

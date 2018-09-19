@@ -1,4 +1,5 @@
 import hw.GameStatus;
+import hw.Square;
 
 import java.util.Scanner;
 
@@ -50,9 +51,51 @@ public class Engine {
             }
             // Switch Player
             currentPlayer = (currentPlayer == 1) ? 2 : 1;
-        } while (gameStatus == GameStatus.PLAYING); //repeat until
+        } while (gameStatus == GameStatus.PLAYING); //repeat until game status is not playing
+        checkForRematch();
+        }
+
+        public void checkForRematch() {
+        System.out.println("Do you want to play again? Y/N");
+        String answer = input.next();
+        if ("Y" .equalsIgnoreCase(answer)) {
+            start();
+        } else {
+            System.out.println("Thank you for playing! ");
         }
     }
+    /**
+     * Update the games current state
+     */
+
+    public void updateGame(int currentPlayer, int currentRow, int currentCol) {
+        if (isWinningPlay(currentPlayer == 1 ? Square.X : Square.O, currentRow, currentCol)) { //Checks if a person won
+            gameStatus = currentPlayer == 1 ? GameStatus.X_WON : GameStatus.O_WON;
+        } else if (isDraw()) { //Checks if it is a draw
+            gameStatus = GameStatus.DRAW;
+        }
+    }
+
+    public void playerToMove(int player) {
+
+
+
+    }
+
+
+
+    /** Check if there are no more empty squares */
+    public boolean isDraw() {
+
+
+
+
+    }
+
+
+
+
+}
 
 
 
