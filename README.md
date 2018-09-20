@@ -2,8 +2,4 @@ Tic Tac Toe
 ======
 *by Faris & Tyler*
 
-Welcome to the home of the forthcoming Tic Tac Toe game/project for COMP-330.
-
-Currently, the "Tyler" branch contains Tyler's (unfinished) sample game, made in Processing. This is intended to serve as a demo of coding ability level to help the team work better together and will not be used or merged into the final project code.
-
-Documentation will be updated within this README file (and any additional files as needed) and linked in the coming days.
+This is the README for the "tyler" branch, which contains a separate Tic Tac Toh game built in Processing. A brief (demo video can be accessed here)[https://luc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66a1cce8-e8e4-4523-80a1-a961013f3036]
