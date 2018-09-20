@@ -85,10 +85,18 @@ public class Engine {
             } else {
                 System.out.println(player2 + "Please enter your move (row[1-3] column[1-3]): ");
             }
-            int row = input.nextInt() -1;
-            int col = input.nextInt() -1;
-            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == Square)
-        }
+            int row = input.nextInt() - 1;
+            int col = input.nextInt() - 1;
+            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == Square.EMPTY) {
+                cRow = row;
+                cColumn = col;
+                board[cRow][cColumn] = player == 1 ? Square.X : Square.O;
+                validInput = true; // exit while loop
+            } else {
+                System.out.println("This move at (" + (row + 1) + "," + (col + 1) + ") is not valid. Please try again...");
+            }
+        } while (!validInput); // This will repeat until input is valid
+    }
 
 
 
@@ -99,9 +107,17 @@ public class Engine {
     /** Check if there are no more empty squares */
     public boolean isDraw() {
         for (int row = 0; row < 3; row++) {
-            for (int )
+            for (int column = 0; column < 3; column++) {
+                if (board[row][column] == Square.EMPTY) {
+                    return false; // There is an empty square, so not a draw yet
+                }
+            }
         }
+        return true; // No empty squares, so this is a draw
+    }
 
+    public boolean isWinningPlay(Square square, int currentRow, int currentColumn) {
+        return ()
 
 
 
