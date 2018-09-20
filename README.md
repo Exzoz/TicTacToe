@@ -25,6 +25,3 @@ Welcome to Team FT's Tic Tac Toe game/project for COMP-330.
 - Allow user to customize their color and token (instead of X or O player could choose their own character or image to play) *not implemented*
 - Help system easily accessible from any part of the program *not implemented, although constant user move prompts and messages like "this move is not valid" should go a long way toward obviating any need for a help system*
 - Detect when a game is no longer winnable, even before the game board is full (9 plays) *not implemented*
-
-## Non-functional Requirements
-- Use GitHub for source control and issue / bug tracking
