@@ -1,3 +1,5 @@
+package hw;
+
 public class Main {
     /** Program starts here */
 

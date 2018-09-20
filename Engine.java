@@ -1,5 +1,4 @@
-import hw.GameStatus;
-import hw.Square;
+package hw;
 
 import java.util.Scanner;
 
@@ -117,7 +116,16 @@ public class Engine {
     }
 
     public boolean isWinningPlay(Square square, int currentRow, int currentColumn) {
-        return ()
+        return (
+                board[currentRow][0] == square && board[currentRow][1] == square && board[currentRow][2] == square // Three in a row
+                || board[0][currentColumn] == square && board[1][currentColumn] == square && board[2][currentColumn] == square // Three in a column
+                || board[0][0] == square && board[1][1] == square && board[2][2] == square && currentRow == currentColumn // Three in diagonal
+                || board[0][2] == square && board[1][1] == square && board[2][0] == square && currentRow + currentColumn == 2); //Three in diagonal
+
+
+
+
+
 
 
 
