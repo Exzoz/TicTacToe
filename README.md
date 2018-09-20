@@ -9,8 +9,7 @@ Welcome to Team FT's Tic Tac Toe game/project for COMP-330.
 
 ## Functional Requirements
 ### Requirements for Minimum Viable Product
-**Requirement**
-*How the software fulfills the requirement*
+- Each bullet point contains a **Requirement** in bold, followed by an explanation of *How the software fulfills the requirement* in italics:
 
 - **Allow 2 concurrent players simultaneously (take turns)** *Controlled by the currentPlayer variable, which toggles between first player (X) and second player (O) each time a valid player move is completed. The playerToMove method then takes this as an argument in order to prompt that player to take their turn*
 - **Collect and display usernames for each player** *Immediately upon starting the game, engine.start() prompts the first, then second player for their name, which the users type into the console, these are saved as player1 and player2 variables*
