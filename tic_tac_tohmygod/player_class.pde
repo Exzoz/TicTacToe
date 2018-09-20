@@ -4,11 +4,13 @@ class Player {
   boolean isHuman;
   int playerColor;
   int playerToken;
+  int playerNameCharsTyped;
 
   Player(boolean human_) {
     isHuman = human_;
     playerName = "playername";
     playerToken = 0;
+    playerNameCharsTyped = 0;
   }
 
   void takeTurn() { //start keeping track of and drawing which square the player has selected. 
@@ -22,7 +24,6 @@ class Player {
     rectMode(CENTER);
     int tempnum = gameBoard.getHighlightedSquare();
     rect(width*gameBoard.squareXXs[tempnum], height*gameBoard.squareYYs[tempnum], width*.2, height*.2);
-    //println(tempnum+", "+gameBoard.squareXXs[tempnum]+", "+gameBoard.squareYYs[tempnum]);
   } //end turnpreviewer
 
 
@@ -65,6 +66,17 @@ class Player {
     stroke(255);
     fill(150, 50);
     rect(width*.6, height*.4, width*.45, height*.085);
+    fill(255);
+    pushStyle();
+    textFont(pixelFont);
+    textSize(12);
+    textAlign(RIGHT);
+    //text("press ENTER\nto confirm",width*.85, height*.4);
+    popStyle();
+    for (int i = 0; i < this.playerNameCharsTyped; i++) { //write the players name in the box as they type    
+      textAlign(LEFT);
+      text(this.playerName, width*.4, height*.415);
+    }
     popStyle();
 
     text("Token", width*.225, height*.55); //Player Token Picker Section
@@ -89,5 +101,22 @@ class Player {
     } else if (sectionSelected == 2) {
       this.setPlayerColor(colorHighlightBox());
     }// end if
+  }
+
+  void resetPlayerNameChars() {
+    this.playerNameCharsTyped = 0;
+  } // end resetPlayerNameChars
+
+  void incrementPlayerNameChars() {
+    if (playerNameCharsTyped < playerNameChars.length-1) {
+      this.playerNameCharsTyped++;
+    }
+  } // end increment player name chars
+
+  void collectPlayerName() {
+    char[] tempChars = new char[playerNameCharsTyped];
+    arrayCopy(playerNameChars, tempChars, playerNameCharsTyped);
+    String tempString = new String(tempChars);
+    setPlayerName(tempString);
   }
 } //end Player class
